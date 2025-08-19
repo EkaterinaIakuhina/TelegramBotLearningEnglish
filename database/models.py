@@ -1,35 +1,49 @@
-import sqlalchemy as sq 
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
 from sqlalchemy.orm import declarative_base, relationship
+from datetime import datetime
+
 
 Base = declarative_base()
 
-class Users(Base):
+
+class User(Base):
     __tablename__ = 'users'
 
-    user_id = sq.Column(sq.Integer, primary_key=True)
+    user_id = Column(Integer, primary_key=True)
+    name_user = Column(String(length=100), nullable=False)
+    created_at = Column(DateTime, default=datetime.now)
 
-    def __str__(self):
+    words = relationship("UserWord", back_populates="user")
+
+    def __repr__(self):
         return f'User: chat_id = {self.user_id}'
-    
 
-class Words(Base):
+
+class Word(Base):
     __tablename__ = 'words'
 
-    word_id = sq.Column(sq.Integer, primary_key=True)
-    original_word = sq.Column(sq.String(length=60)) 
-    translate_word = sq.Column(sq.String(length=60))
+    word_id = Column(Integer, primary_key=True)
+    original_word = Column(String(length=60), nullable=False)
+    translate_word = Column(String(length=60), nullable=False)
+    language_from = Column(String(length=40), default='en')
+    language_to = Column(String(length=40), default='ru')
+    status = Column(String(length=20), default=None)
 
-    def __str__(self):
-        return f'Word {self.word_id} has name {self.original_word} and translate {self.translate_word}'
-    
+    users = relationship("UserWord", back_populates="word")
 
-class UserWords(Base):
-    __tablename__ = 'users_words'
-
-    id = sq.Column(sq.Integer, primary_key=True)
-    word_id = sq.Column(sq.Integer,  sq.ForeignKey('words.id'), nullable=False)
-    user_id = sq.Column(sq.Integer,  sq.ForeignKey('users.id'), nullable=True)
+    def __repr__(self):
+        return f'Word {self.word_id} ({self.original_word}:{self.translate_word})'
 
 
-    def __str__(self):
-        return f'{id}: User with {self.user_id} has word {self.word_id}'
+class UserWord(Base):
+    __tablename__ = 'user_words'
+
+    id = Column(Integer, primary_key=True)
+    word_id = Column(Integer,  ForeignKey('words.word_id'), nullable=False)
+    user_id = Column(Integer,  ForeignKey('users.user_id'), nullable=False)
+
+    user = relationship("User", back_populates="words")
+    word = relationship("Word", back_populates="users")
+
+    def __repr__(self):
+        return f'{self.id}: User with {self.user_id} has word {self.word_id}'
