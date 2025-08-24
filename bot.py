@@ -2,6 +2,8 @@ from telebot import TeleBot, types
 from telebot.storage import StateMemoryStorage
 from telebot.handler_backends import State, StatesGroup
 import random
+import os
+import dotenv
 from utils.logger import main_logger
 from database.session import add_new_user, add_new_word_for_user, del_word_for_user, get_users_words, \
     add_initial_words_for_user, get_user_id, change_status_to_deleting, change_status_to_adding, change_status_to_guessing, get_user_status
@@ -9,7 +11,9 @@ from utils.translator import get_translation
 
 logger = main_logger(__name__)
 
-BOT_TOKEN = '8053098189:AAGHRT2JgTP6DA4P9vG1rtKmE3ySQtGp1DU'
+dotenv.load_dotenv()
+
+BOT_TOKEN = os.getenv('BOT_TOKEN')
 
 state_storage = StateMemoryStorage()
 bot = TeleBot(BOT_TOKEN, state_storage=state_storage)
