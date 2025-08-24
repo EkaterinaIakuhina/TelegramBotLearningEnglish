@@ -1,6 +1,6 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, BigInteger
 from sqlalchemy.orm import declarative_base, relationship
-from datetime import datetime
+import datetime
 
 
 Base = declarative_base()
@@ -10,8 +10,9 @@ class User(Base):
     __tablename__ = 'users'
 
     user_id = Column(Integer, primary_key=True)
-    name_user = Column(String(length=100), nullable=False)
-    created_at = Column(DateTime, default=datetime.now)
+    name_user = Column(BigInteger, nullable=False)
+    created_at = Column(DateTime, default=datetime.datetime.now)
+    status = Column(String(30), default='guessing')
 
     words = relationship("UserWord", back_populates="user")
 
@@ -25,8 +26,8 @@ class Word(Base):
     word_id = Column(Integer, primary_key=True)
     original_word = Column(String(length=60), nullable=False)
     translate_word = Column(String(length=60), nullable=False)
-    language_from = Column(String(length=40), default='en')
-    language_to = Column(String(length=40), default='ru')
+    language_from = Column(String(length=40), default='ru')
+    language_to = Column(String(length=40), default='en')
     status = Column(String(length=20), default=None)
 
     users = relationship("UserWord", back_populates="word")

@@ -1,82 +1,34 @@
 [
     {
-        "original_word": "Achieve",
-        "translate_word": "Достигать"
+        "original_word": "Достигать",
+        "translate_word": "Achieve"
     },
     {
-        "original_word": "Borrow",
-        "translate_word": "Заимствовать"
+        "original_word": "Заимствовать",
+        "translate_word": "Borrow"
     },
     {
-        "original_word": "Challenge",
-        "translate_word": "Вызов"
+        "original_word": "Вызов",
+        "translate_word": "Challenge"
     },
     {
-        "original_word": "Doubt",
-        "translate_word": "Сомнение"
+        "original_word": "Сомнение",
+        "translate_word": "Doubt"
     },
     {
-        "original_word": "Eager",
-        "translate_word": "Стремящийся"
+        "original_word": "Стремящийся",
+        "translate_word": "Eager"
     },
     {
-        "original_word": "Fierce",
-        "translate_word": "Яростный"
+        "original_word": "Яростный",
+        "translate_word": "Fierce"
     },
     {
-        "original_word": "Grasp",
-        "translate_word": "Хватать"
+        "original_word": "Хватать",
+        "translate_word": "Grasp"
     },
     {
-        "original_word": "Hesitate",
-        "translate_word": "Колебаться"
-    },
-    {
-        "original_word": "Ignore",
-        "translate_word": "Игнорировать"
-    },
-    {
-        "original_word": "Jealous",
-        "translate_word": "Ревнивый"
-    },
-    {
-        "original_word": "Keen",
-        "translate_word": "Заинтересованный"
-    },
-    {
-        "original_word": "Linger",
-        "translate_word": "Задерживаться"
-    },
-    {
-        "original_word": "Mislead",
-        "translate_word": "Вводить в заблуждение"
-    },
-    {
-        "original_word": "Nuisance",
-        "translate_word": "Неудобство"
-    },
-    {
-        "original_word": "Obstacle",
-        "translate_word": "Препятствие"
-    },
-    {
-        "original_word": "Praise",
-        "translate_word": "Хвалить"
-    },
-    {
-        "original_word": "Quarrel",
-        "translate_word": "Ссора"
-    },
-    {
-        "original_word": "Reliable",
-        "translate_word": "Надёжный"
-    },
-    {
-        "original_word": "Stubborn",
-        "translate_word": "Упрямый"
-    },
-    {
-        "original_word": "Thrive",
-        "translate_word": "Процветать"
+        "original_word": "Колебаться",
+        "translate_word": "Hesitate"
     }
 ]
